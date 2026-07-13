@@ -1,4 +1,5 @@
-import { use, useState } from "react";
+import { useState } from "react";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,20 +38,11 @@ function App() {
         className="w-[30%] mb-10"
       />
       <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-xl text-white shadow-xl w-[30%] text-center flex">
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search Your Pokémon..."
-          className="flex-1 focus:outline-none p-4 rounded-xl text-[#4A4A4A] bg-gray-50 font-bold w-[80%]"
-        />
-        <button
-          onClick={() => fetchPokemon(searchTerm)}
-          className="ml-2"
-        >
-          {/* <i className="fa-solid fa-magnifying-glass font-bold"></i> */}
-          <img src="src/assets/circle_logo.png" alt="Search Icon" className="w-16"/>
-        </button>
+      <SearchBar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        onSearch={fetchPokemon}
+      />
       </div>
 
         {loading && <p className="mt-8 text-[#4A4A4A] font-bold">Loading...</p>}
