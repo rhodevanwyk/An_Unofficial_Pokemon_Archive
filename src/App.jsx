@@ -36,7 +36,7 @@ function App() {
         alt="Main Pokémon Logo"
         className="w-[30%] mb-10"
       />
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-xl text-white shadow-xl w-[30%] text-center">
+      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-xl text-white shadow-xl w-[30%] text-center flex">
         <input
           type="text"
           value={searchTerm}
@@ -46,10 +46,12 @@ function App() {
         />
         <button
           onClick={() => fetchPokemon(searchTerm)}
-          className="ml-2 p-4 text-gray-50 bg-[#4A4A4A] rounded-xl font-bold"
+          className="ml-2"
         >
-          <i className="fa-solid fa-magnifying-glass font-bold"></i>
+          {/* <i className="fa-solid fa-magnifying-glass font-bold"></i> */}
+          <img src="src/assets/circle_logo.png" alt="Search Icon" className="w-16"/>
         </button>
+      </div>
 
         {loading && <p className="mt-8 text-[#4A4A4A] font-bold">Loading...</p>}
         {error && (
@@ -62,7 +64,6 @@ function App() {
             </pre>
           </div>
         )}
-      </div>
     </div>
   );
 }
