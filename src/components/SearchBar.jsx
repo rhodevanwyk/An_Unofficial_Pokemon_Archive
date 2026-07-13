@@ -16,7 +16,7 @@ function SearchBar({ searchTerm, setSearchTerm, onSearch }) {
       <button type="submit" className="ml-4">
         {/* <i className="fa-solid fa-magnifying-glass font-bold"></i> */}
         <img
-          src="src/assets/circle_logo.png"
+          src="./src/assets/circle_logo.png"
           alt="Search Icon"
           className="w-16"
         />

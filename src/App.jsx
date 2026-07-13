@@ -38,7 +38,7 @@ function App() {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <img
-        src="src/assets/pokemon_logo.png"
+        src="./src/assets/pokemon_logo.png"
         alt="Main Pokémon Logo"
         className="w-[30%] mb-10"
       />
