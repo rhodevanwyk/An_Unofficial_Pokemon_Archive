@@ -7,7 +7,10 @@ function SearchBar({ searchTerm, setSearchTerm, onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-row items-center gap-4 w-full flex-nowrap">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-row items-center gap-4 w-full flex-nowrap"
+    >
       <input
         type="text"
         value={searchTerm}
@@ -16,11 +19,7 @@ function SearchBar({ searchTerm, setSearchTerm, onSearch }) {
         className="flex-1 min-w-0 focus:outline-none p-4 rounded-xl text-[#4A4A4A] bg-gray-50 font-bold"
       />
       <button type="submit" className="shrink-0 rounded-xl p-2">
-        <img
-          src={searchIcon}
-          alt="Search Icon"
-          className="w-12 h-12"
-        />
+        <img src={searchIcon} alt="Search Icon" className="w-12 h-12" />
       </button>
     </form>
   );

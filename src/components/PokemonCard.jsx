@@ -8,29 +8,29 @@ function PokemonCard({ pokemon }) {
   const spriteUrl = sprites.front_default;
 
   const typeColors = {
-    normal: 'bg-[#E4E4E7]',
-    fire: 'bg-[#FED7AA]',
-    water: 'bg-[#BAE6FD]',
-    electric: 'bg-[#FEF08A]',
-    grass: 'bg-[#BBF7D0]',
-    ice: 'bg-[#CFFAFE]',
-    fighting: 'bg-[#FECACA]',
-    poison: 'bg-[#F5D0FE]',
-    ground: 'bg-[#FDE68A]',
-    flying: 'bg-[#E0E7FF]',
-    psychic: 'bg-[#FBCFE8]',
-    bug: 'bg-[#D9F99D]',
-    rock: 'bg-[#D6D3D1]',
-    ghost: 'bg-[#E9D5FF]',
-    dragon: 'bg-[#C4B5FD]',
-    dark: 'bg-[#A1A1AA]',
-    steel: 'bg-[#CBD5E1]',
-    fairy: 'bg-[#FFE4E6]'
+    normal: "bg-[#E4E4E7]",
+    fire: "bg-[#FED7AA]",
+    water: "bg-[#BAE6FD]",
+    electric: "bg-[#FEF08A]",
+    grass: "bg-[#BBF7D0]",
+    ice: "bg-[#CFFAFE]",
+    fighting: "bg-[#FECACA]",
+    poison: "bg-[#F5D0FE]",
+    ground: "bg-[#FDE68A]",
+    flying: "bg-[#E0E7FF]",
+    psychic: "bg-[#FBCFE8]",
+    bug: "bg-[#D9F99D]",
+    rock: "bg-[#D6D3D1]",
+    ghost: "bg-[#E9D5FF]",
+    dragon: "bg-[#C4B5FD]",
+    dark: "bg-[#A1A1AA]",
+    steel: "bg-[#CBD5E1]",
+    fairy: "bg-[#FFE4E6]",
   };
 
   return (
     <div
-      className="relative w-full max-w-[320px] h-[22rem] sm:w-48 sm:h-72 cursor-pointer select-none"
+      className="relative w-full max-w-[320px] h-88 sm:w-48 sm:h-72 cursor-pointer select-none"
       style={{ perspective: "1000px" }}
       onClick={() => setFlipped(!flipped)}
     >
@@ -70,7 +70,9 @@ function PokemonCard({ pokemon }) {
               </span>
             ))}
           </div>
-          <p className="text-[#4A4A4A]/50 text-xs mt-4 font-bold">Tap To See Stats</p>
+          <p className="text-[#4A4A4A]/50 text-xs mt-4 font-bold">
+            Tap To See Stats
+          </p>
         </div>
 
         <div
