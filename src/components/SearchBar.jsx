@@ -1,3 +1,5 @@
+import searchIcon from "../assets/circle_logo.png";
+
 function SearchBar({ searchTerm, setSearchTerm, onSearch }) {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ function SearchBar({ searchTerm, setSearchTerm, onSearch }) {
       <button type="submit" className="ml-4">
         {/* <i className="fa-solid fa-magnifying-glass font-bold"></i> */}
         <img
-          src="./src/assets/circle_logo.png"
+          src={searchIcon}
           alt="Search Icon"
           className="w-16"
         />

@@ -2,6 +2,7 @@ import { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import PokemonCard from "./components/PokemonCard";
 import bgImage from "./assets/bg.jpg";
+import pokemonLogo from "./assets/pokemon_logo.png";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -38,7 +39,7 @@ function App() {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <img
-        src="./src/assets/pokemon_logo.png"
+        src={pokemonLogo}
         alt="Main Pokémon Logo"
         className="w-[30%] mb-10"
       />
