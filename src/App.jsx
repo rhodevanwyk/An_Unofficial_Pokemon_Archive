@@ -45,9 +45,9 @@ function App() {
       />
       </div>
 
-        {loading && <p className="mt-8 text-[#4A4A4A] font-bold">Loading...</p>}
+        {loading && <p className="mt-8 bg-white/10 backdrop-blur-md border border-white/20 p-2 pr-4 pl-4 rounded text-white shadow-xl font-bold">Loading...</p>}
         {error && (
-          <p className="text-[#C23B22] mt-8 font-bold text-center">{error}</p>
+          <p className="bg-[#FFB1B1]/30 backdrop-blur-md border border-[#FFB1B1]/20 rounded text-[#C23B22] shadow-xl p-2 pr-4 pl-4 mt-8 font-bold text-center">{error}</p>
         )}
         {pokemon && (
           <div className="max-h-80 overflow-y-auto mt-8 p-8 bg-[#121212]/50 rounded-lg text-left">
