@@ -41,7 +41,7 @@ function App() {
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search Your Pokémon"
+          placeholder="Search Your Pokémon..."
           className="flex-1 focus:outline-none p-4 rounded-xl text-[#4A4A4A] bg-gray-50 font-bold w-[80%]"
         />
         <button
