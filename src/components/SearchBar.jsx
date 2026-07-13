@@ -5,7 +5,7 @@ function SearchBar({ searchTerm, setSearchTerm, onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-[100%]">
+    <form onSubmit={handleSubmit} className="flex w-full">
       <input
         type="text"
         value={searchTerm}
