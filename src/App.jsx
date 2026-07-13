@@ -35,15 +35,15 @@ function App() {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat text-[#FFCB05] p-16 flex flex-col justify-center items-center"
+      className="min-h-screen bg-cover bg-center bg-no-repeat text-[#FFCB05] p-8 sm:p-16 flex flex-col justify-center items-center"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <img
         src={pokemonLogo}
         alt="Main Pokémon Logo"
-        className="w-[30%] mb-10"
+        className="w-full sm:w-[40%] max-w-[520px] mb-10"
       />
-      <div className="bg-gray-50/10 backdrop-blur-md border border-white/20 p-10 rounded-xl text-white shadow-xl w-[30%] text-center flex">
+      <div className="bg-gray-50/10 backdrop-blur-md border border-white/20 p-6 sm:p-10 rounded-xl text-white shadow-xl w-full max-w-3xl text-center flex flex-col sm:flex-row items-center gap-4">
         <SearchBar
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
@@ -69,7 +69,7 @@ function App() {
           </div>
         )} */}
       {pokemon && !loading && !error && (
-        <div className="bg-gray-50/10 backdrop-blur-md border border-white/20 p-10 rounded-xl text-white shadow-xl w-[30%] text-center flex mt-8 justify-center">
+        <div className="bg-gray-50/10 backdrop-blur-md border border-white/20 p-6 sm:p-10 rounded-xl text-white shadow-xl w-full max-w-3xl text-center flex mt-8 justify-center">
           <PokemonCard pokemon={pokemon} />
         </div>
       )}

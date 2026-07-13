@@ -30,7 +30,7 @@ function PokemonCard({ pokemon }) {
 
   return (
     <div
-      className="relative w-48 h-72 cursor-pointer select-none"
+      className="relative w-full max-w-[320px] h-[22rem] sm:w-48 sm:h-72 cursor-pointer select-none"
       style={{ perspective: "1000px" }}
       onClick={() => setFlipped(!flipped)}
     >
