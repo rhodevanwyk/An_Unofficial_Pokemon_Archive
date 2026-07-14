@@ -108,7 +108,7 @@ function App() {
         <button
           onClick={fetchAllPokemon}
           disabled={listLoading}
-          className="bg-gray-50/10 backdrop-blur-md border border-gray-50/20 p-2 pr-4 pl-4 rounded-xl text-gray-50 font-bold h-14 gray-50 text-nowrap flex justify-center items-center disabled:opacity-50"
+          className="bg-gray-50/10 backdrop-blur-md border border-gray-50/20 p-2 pr-4 pl-4 rounded-xl text-gray-50 font-bold h-14 gray-50 text-nowrap w-full lg:w-fit md:w-fit flex justify-center items-center disabled:opacity-50"
         >
           {listLoading
             ? "Loading..."
