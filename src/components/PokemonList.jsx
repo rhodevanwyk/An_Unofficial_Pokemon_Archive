@@ -13,7 +13,7 @@ function PokemonList({ pokemonList, onSelect }) {
             className="w-20 h-20 object-contain"
             loading="lazy"
           />
-          <span className="capitalize text-sm  mt-2 text-[#4A4A4A]">
+          <span className="capitalize text-xs md:text-sm mt-2 text-[#4A4A4A]">
             {p.name}
           </span>
         </div>
