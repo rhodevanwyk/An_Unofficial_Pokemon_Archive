@@ -18,7 +18,7 @@ function SearchBar({ searchTerm, setSearchTerm, onSearch }) {
         placeholder="Search Your Pokémon..."
         className="flex-1 min-w-0 focus:outline-none p-4 rounded-xl text-[#4A4A4A] bg-gray-50 font-bold"
       />
-      <button type="submit" className="shrink-0 rounded-xl p-2">
+      <button type="submit" className="shrink-0 rounded-xl">
         <img src={searchIcon} alt="Search Icon" className="w-12 h-12" />
       </button>
     </form>
