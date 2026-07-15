@@ -2,7 +2,7 @@
 
 A small React + Vite web app that lets you browse Pokémon cards and search the Pokédex. This repository powers the live site at https://an-unofficial-pokemon-archive.netlify.app.
 
-**Live demo:** https://an-unofficial-pokemon-archive.netlify.app
+<img width="1920" height="1080" alt="Mockup Result" src="https://github.com/user-attachments/assets/1616e415-46a3-46e7-866d-d5af7494664d" />
 
 ## Summary
 
@@ -27,6 +27,8 @@ A small React + Vite web app that lets you browse Pokémon cards and search the 
 ## API
 
 - This project fetches Pokémon data from the PokéAPI: https://pokeapi.co/.
+
+<img width="1920" height="1080" alt="Mockup Result2" src="https://github.com/user-attachments/assets/07061da4-acdc-496a-a334-41f215a85618" />
 
 ## Local Development
 
@@ -68,9 +70,5 @@ npm run preview
 ## License & Usage
 
 This project is proprietary. See the repository `LICENSE` file for the full terms. In short: all rights reserved. Copying, redistributing, creating derived works, or otherwise using this code without explicit written permission from the copyright holder is prohibited.
-
-## Contact / Questions
-
-If you need permission to use any part of this project, please open an issue on the repository or contact the project owner through the site.
 
 ---
