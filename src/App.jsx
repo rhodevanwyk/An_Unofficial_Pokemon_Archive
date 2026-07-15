@@ -7,7 +7,7 @@ import pokemonLogo from "./assets/pokemon_logo.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 const API_BASE = "https://pokeapi.co/api/v2";
-const INITIAL_LIMIT = 1;
+const BATCH_SIZE = 100;
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,8 +16,10 @@ function App() {
   const [error, setError] = useState(null);
 
   const [allPokemon, setAllPokemon] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(0);
   const [showList, setShowList] = useState(false);
   const [listLoading, setListLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
 
   const abortControllerRef = useRef(null);
 
@@ -55,38 +57,62 @@ function App() {
     }
   }, []);
 
+  const buildPokemonList = useCallback((results) => {
+    return results.map((p) => {
+      const id = p.url.split("/").filter(Boolean).pop();
+      return {
+        id: Number(id),
+        name: p.name,
+        sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
+      };
+    });
+  }, []);
+
+  const fetchPokemonBatch = useCallback(
+    async (offset = 0, append = false) => {
+      setListLoading(true);
+      setError(null);
+
+      try {
+        const res = await fetch(
+          `${API_BASE}/pokemon?offset=${offset}&limit=${BATCH_SIZE}`,
+        );
+        const data = await res.json();
+        const list = buildPokemonList(data.results);
+
+        if (append) {
+          setAllPokemon((prev) => [...prev, ...list]);
+          setVisibleCount((prev) => prev + list.length);
+        } else {
+          setAllPokemon(list);
+          setVisibleCount(list.length);
+        }
+
+        setHasMore(offset + list.length < data.count);
+        setShowList(true);
+      } catch (err) {
+        console.error("Failed to fetch Pokémon list", err);
+        setError("Could not load Pokémon list");
+      } finally {
+        setListLoading(false);
+      }
+    },
+    [buildPokemonList],
+  );
+
   const fetchAllPokemon = useCallback(async () => {
     if (allPokemon.length > 0) {
       setShowList((prev) => !prev);
       return;
     }
 
-    setListLoading(true);
-    try {
-      const countRes = await fetch(`${API_BASE}/pokemon?limit=${INITIAL_LIMIT}`);
-      const countData = await countRes.json();
+    await fetchPokemonBatch(0, false);
+  }, [allPokemon.length, fetchPokemonBatch]);
 
-      const res = await fetch(`${API_BASE}/pokemon?limit=${countData.count}`);
-      const data = await res.json();
-
-      const list = data.results.map((p) => {
-        const id = p.url.split("/").filter(Boolean).pop();
-        return {
-          id: Number(id),
-          name: p.name,
-          sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
-        };
-      });
-
-      setAllPokemon(list);
-      setShowList(true);
-    } catch (err) {
-      console.error("Failed to fetch Pokémon list", err);
-      setError("Could not load Pokémon list");
-    } finally {
-      setListLoading(false);
-    }
-  }, [allPokemon.length]);
+  const loadMorePokemon = useCallback(async () => {
+    if (listLoading || !hasMore) return;
+    await fetchPokemonBatch(visibleCount, true);
+  }, [fetchPokemonBatch, hasMore, listLoading, visibleCount]);
 
   const handleSearch = useCallback(
     (term) => {
@@ -147,13 +173,25 @@ function App() {
             transition={{ duration: 0.25 }}
             className="bg-gray-50/10 backdrop-blur-md border border-gray-50/20 p-6 sm:p-10 rounded-xl text-gray-50 shadow-xl w-full max-w-3xl text-center flex flex-col sm:flex-row items-center gap-4 mt-8"
           >
-            <PokemonList
-              pokemonList={allPokemon}
-              onSelectPokemon={(name) => {
-                setShowList(false);
-                handleSearch(name);
-              }}
-            />
+            <div className="w-full flex flex-col gap-4">
+              <PokemonList
+                pokemonList={allPokemon.slice(0, visibleCount)}
+                onSelectPokemon={(name) => {
+                  setShowList(false);
+                  handleSearch(name);
+                }}
+              />
+
+              {hasMore && (
+                <button
+                  onClick={loadMorePokemon}
+                  disabled={listLoading}
+                  className="mt-8 self-center bg-gray-50/10 backdrop-blur-md border border-gray-50/20 px-4 py-2 rounded-xl text-gray-50 font-bold disabled:opacity-50"
+                >
+                  {listLoading ? "Loading..." : "Load More Pokémon"}
+                </button>
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
