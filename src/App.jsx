@@ -7,7 +7,7 @@ import pokemonLogo from "./assets/pokemon_logo.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 const API_BASE = "https://pokeapi.co/api/v2";
-const DEFAULT_LIMIT = 151;
+const INITIAL_LIMIT = 1;
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -63,7 +63,10 @@ function App() {
 
     setListLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/pokemon?limit=${DEFAULT_LIMIT}`);
+      const countRes = await fetch(`${API_BASE}/pokemon?limit=${INITIAL_LIMIT}`);
+      const countData = await countRes.json();
+
+      const res = await fetch(`${API_BASE}/pokemon?limit=${countData.count}`);
       const data = await res.json();
 
       const list = data.results.map((p) => {
