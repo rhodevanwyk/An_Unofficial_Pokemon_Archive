@@ -137,7 +137,7 @@ function App() {
         <button
           onClick={fetchAllPokemon}
           disabled={listLoading}
-          className="bg-gray-50/10 backdrop-blur-md border border-gray-50/20 p-2 pr-4 pl-4 rounded-xl text-gray-50 font-bold h-14 gray-50 text-nowrap w-full lg:w-fit md:w-fit flex justify-center items-center disabled:opacity-50"
+          className="bg-gray-50/10 backdrop-blur-md border border-gray-50/20 p-4 rounded-xl text-gray-50 font-bold h-14 gray-50 text-nowrap w-full lg:w-fit md:w-fit flex justify-center items-center disabled:opacity-50"
         >
           {listLoading
             ? "Loading..."
@@ -153,13 +153,13 @@ function App() {
       </div>
 
       {loading && (
-        <p className="mt-8 bg-gray-50/10 backdrop-blur-md border border-gray-50/20 p-2 pr-4 pl-4 rounded text-gray-50 shadow-md font-bold">
+        <p className="mt-8 bg-gray-50/10 backdrop-blur-md border border-gray-50/20 p-4 rounded text-gray-50 shadow-md font-bold">
           Loading...
         </p>
       )}
 
       {error && (
-        <p className="bg-[#FFB1B1]/30 backdrop-blur-md border border-[#FFB1B1]/20 rounded text-[#C23B22] shadow-md p-2 pr-4 pl-4 mt-8 font-bold text-center">
+        <p className="bg-[#FFB1B1]/30 backdrop-blur-md border border-[#FFB1B1]/20 rounded text-[#C23B22] shadow-md p-4 mt-8 font-bold text-center">
           {error}
         </p>
       )}
@@ -186,7 +186,7 @@ function App() {
                 <button
                   onClick={loadMorePokemon}
                   disabled={listLoading}
-                  className="mt-8 self-center bg-gray-50/10 backdrop-blur-md border border-gray-50/20 px-4 py-2 rounded-xl text-gray-50 font-bold disabled:opacity-50"
+                  className="mt-8 bg-gray-50/10 backdrop-blur-md border border-gray-50/20 p-4 rounded-xl text-gray-50 font-bold"
                 >
                   {listLoading ? "Loading..." : "Load More Pokémon"}
                 </button>
